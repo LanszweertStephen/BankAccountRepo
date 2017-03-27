@@ -13,13 +13,23 @@ import org.junit.*;
  * @author Stephen
  */
 public class BankAccountTester {
-    
+    @Test
     public void testBankAccounrCreation(){
        BankAccount b = new BankAccount();
        
        Assert.assertNotNull(b);
     }
 
-
+    @Test
+    public void testNormalDeposit(){
+         BankAccount b = new BankAccount();
+         double initialBalance = b.getBalance();
+        double amountToDeposit = 100;
+        
+        b.deposit(amountToDeposit);
+        
+        Assert.assertEquals(initialBalance + amountToDeposit, b.getBalance(), 0.01);
+        
+    }
    
 }
