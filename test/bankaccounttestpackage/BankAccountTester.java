@@ -31,5 +31,17 @@ public class BankAccountTester {
         Assert.assertEquals(initialBalance + amountToDeposit, b.getBalance(), 0.01);
         
     }
+    
+    @Test
+    public void testDepositIgnoreNegativeAmount(){
+         BankAccount b = new BankAccount();
+         double initialBalance = b.getBalance();
+        double negativeAmount = -100;
+        
+        b.deposit(negativeAmount);
+        
+        Assert.assertEquals(initialBalance, b.getBalance(), 0.01);
+        
+    }
    
 }
